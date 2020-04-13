@@ -1,5 +1,6 @@
 from Mask_Map_Load import Mask_Map_Load
 from Map_Search import Map_Search
+from Time_difference import Time_difference
 
 class Mask_Search():
 
@@ -10,7 +11,14 @@ class Mask_Search():
         self.Mask_Map.Read_Json()
         self.Data= self.Mask_Map.Json_Load()
         self.Mask_Data={}
+        self.Time_Upgrade=Time_difference()
+        self.Time_Upgrade.Do_Time_Job(self.ReLoad)
 
+    def ReLoad(self):
+        self.Mask_Map.Reload_Json()
+        self.Mask_Map.Read_Json()
+        self.Data= self.Mask_Map.Json_Load()
+        self.Mask_Data={}
 
     def Get_Data(self):
         Map_Info = open('test.txt', 'w+', encoding='utf-8')
@@ -61,6 +69,7 @@ class Mask_Search():
             print(key)
             Return_List.append(key)
             counter+=1
+        self.Mask_Data={}
         return Return_List
 
 

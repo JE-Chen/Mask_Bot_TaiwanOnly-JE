@@ -4,15 +4,15 @@
 
 ## 需要的類別庫 :
 * pip install apscheduler
-* line-bot-sdk
-* flask
-* json
-* requests
-* bs4
-* webbrowser
-* folium
-* geopy
-* configparser
+* pip install line-bot-sdk
+* pip install flask
+* pip install json
+* pip install requests
+* pip install bs4
+* pip install webbrowser
+* pip install folium
+* pip install geopy
+* pip install configparser
 
 ## Example
 #### 請使用Line預設的傳座標功能

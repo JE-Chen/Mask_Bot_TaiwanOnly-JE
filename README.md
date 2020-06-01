@@ -16,4 +16,4 @@
 
 ## Example
 #### 請使用Line預設的傳座標功能
-<img src="Example.PNG" alt="Something Wrong">
+<img src="Example.png" alt="Something Wrong">

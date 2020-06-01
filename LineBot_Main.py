@@ -25,9 +25,9 @@ import configparser
 # Line訊息主系統
 from Line_MessageMain import Line_MessageMain
 
-from Mask_Search import Mask_Search
+from Mask_Map_Core import Mask_Map_Core
 
-Mask=Mask_Search()
+Mask=Mask_Map_Core()
 
 # configparser套件
 config = configparser.ConfigParser()
@@ -116,7 +116,7 @@ def handle_location_message(event):
         lat=event.message.latitude
         lng = event.message.longitude
         Total=''
-        for i in Mask.Return_Nearby(lng,lat):
+        for i in Mask.Mask_Search.Return_Nearby(lng,lat):
             Total+=str(i)+'\n'
         Line_Main.Reply_Message(event.reply_token, Total)
 
@@ -173,8 +173,6 @@ def handle_member_joined(event):
 @handler.add(MemberLeftEvent)
 def handle_member_left(event):
     print('MemberLeftEvent')
-
-
 
 if __name__ == "__main__":
     app.run()

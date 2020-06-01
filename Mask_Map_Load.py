@@ -6,19 +6,27 @@ from bs4 import BeautifulSoup
 class Mask_Map_Load():
 
     def __init__(self):
-        self.Url='https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json'
-        rs = requests.session()
-        res = rs.get(self.Url)
-        self.Soup= BeautifulSoup(res.text, 'lxml')
-        self.Total=''
+        try:
+            self.Url='https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json'
+            rs = requests.session()
+            res = rs.get(self.Url)
+            if res.status_code == 200:
+                self.Soup= BeautifulSoup(res.text, 'lxml')
+                self.Total=''
+        except Exception as Errr :
+            raise Errr
 
     def Reload_Json(self):
-        self.Url='https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json'
-        rs = requests.session()
-        res = rs.get(self.Url)
-        self.Soup= BeautifulSoup(res.text, 'lxml')
-        self.Total=''
-        self.Output_Json()
+        try:
+            self.Url='https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json'
+            rs = requests.session()
+            res = rs.get(self.Url)
+            if res.status_code == 200:
+                self.Soup= BeautifulSoup(res.text, 'lxml')
+                self.Total=''
+                self.Output_Json()
+        except Exception as Errr :
+            raise Errr
 
     def Output_Json(self,File_Name='Map_Info.txt'):
         with open(File_Name,'w',encoding='utf-8') as Map_Info:

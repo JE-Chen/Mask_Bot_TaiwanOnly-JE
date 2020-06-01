@@ -9,9 +9,10 @@ class Map_Search():
         self.File_Name=".html"
         self.geolocator = Nominatim(user_agent="Test")
 
-    def Set_Fmap(self,list_location=[22.632082,120.299156],zoom_start=15):
+    def Create_Fmap(self,list_location=[22.632082,120.299156],zoom_start=15):
         # 建立地圖與設定位置
         self.fmap = folium.Map(location=list_location, zoom_start=zoom_start)
+
 
 # ----------------------------------------------------------------------------------------------
     '''
@@ -194,6 +195,6 @@ class Map_Search():
         a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
         c = 2 * asin(sqrt(a))
         r = 6371  # 地球平均半徑，單位為公里
-        return c * r
+        return c * r * 1000
 
 
